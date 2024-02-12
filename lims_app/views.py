@@ -5,11 +5,19 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def home(request):
-    return render(request,"index.html",context={})
+    return render(request,"home.html",context={'current_tab':'home'})
 
-def shopping(request):
-    return HttpResponse('Welcome to shopping')
+def readers(request):
+    return render(request,"readers.html",context={'current_tab':'readers'})
+
+def books(request):
+    return render(request,"books.html",context={'current_tab':'books'})
+
+
+def returns(request):
+    return render(request,"returns.html",context={'current_tab':'reeturns'})
 
 def save_student(request):
     student_name = request.POST['student_name']
-    return HttpResponse('welcome to library - '+student_name)
+    return render(request,'welcome.html',context={'student_name':student_name})
+
